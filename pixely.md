@@ -43,3 +43,61 @@ React组件库。
 图标库。
 ### photon
 衍生项目。一个使用Tauri框架构建的简单的桌面HTTP下载器。主要目的是验证light-engine，同时熟悉Tauri的API及跨平台适配能力。
+
+## rasterizer-cli
+
+### rastr new
+```
+rastr new <instance-name> <minecraft-version>
+```
+新建实例
+
+### rastr install
+```
+rastr install <instance-name> (--forge | --fabric | --qulit | --neoforge | --rift | --liteloader | --optifine) [version]
+```
+安装实例核心组件
+
+### rastr launch
+```
+rastr launch <instance-name> [--account <username>] [--offline <username>] [--jre <path>] [--mem <size>] [--custom-args <args>]
+```
+启动实例
+
+### rastr list
+```
+rastr list (--instances | --versions (--minecraft | --forge <minecraft-version> | --fabric <minecraft-version> | --qulit <minecraft-version> | --neoforge <minecraft-version> | --rift <minecraft-version> | --liteloader <minecraft-version> | --optifine <minecraft-version>) | --instance <instance-name> (--mods | --respacks | --shaders | --saves))
+```
+
+### rastr get
+```
+rastr get <instance-name> <mod | respack | datapack | shader> <name>
+```
+从Modrinth为指定实例获取内容
+
+### rastr search
+```
+rastr search <mod | respack | datapack | shader> <search-term>
+```
+从Modrinth搜索内容
+
+### rastr login
+```
+rastr login (--ms | --custom <url>)
+```
+
+### rastr manage
+```
+rastr manage <instance-name>
+```
+进入实例管理界面
+```
+$ rastr manage NebulaeCraft
+rasterizer@NebulaeCraft >
+```
+在这里你可以直接下载Modrinth内容，列出已下载的内容或是所有的存档等，方便对实例进行管理。
+
+### rastr conf
+```
+rastr conf (--get <key> | --set <key> <value> | --unset <key>)
+```

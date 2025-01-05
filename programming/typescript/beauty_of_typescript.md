@@ -22,13 +22,7 @@ interface RandomComponentProps extends ComponentPropsWithoutRef<'div'> {
     randomProp: any
 }
 ```
-或者：
-```typescript
-interface RandomComponentProps extends HTMLAttributes<HTMLDivElement> {
-    randomProp: any
-}
-```
-当然，如果你要继承其他标签的DOM Attributes，只需要替换`ComponentPropsWithoutRef<T>`中的泛型参数就可以了，比如`ComponentPropsWithoutRef<'button'>`就代表`<button />`标签的DOM Attributes。第二种方法同理。
+当然，如果你要继承其他标签的DOM Attributes，只需要替换`ComponentPropsWithoutRef<T>`中的泛型参数就可以了，比如`ComponentPropsWithoutRef<'button'>`就代表`<button />`标签的DOM Attributes。
 
 如果你真的打算这么写，你会和ES6的对象解构语法成为好朋友的。
 ```tsx
@@ -48,7 +42,7 @@ const RandomComponent: React.FC<RandomComponentProps> = ({
 ```tsx
 interface WrappedComponentProps = ComponentPropsWithoutRef<typeof RandomComponent>;
 ```
-还有，对的，还有`ComponentProps<T>`和`ComponentPropsWithRef<T>`。它们的用法都相同，唯一区别是只有`ComponentPropsWithoutRef<T>`会遮盖掉`ref`，除此之外命名上的差异主要用于提供信息（这个组件会不会对外暴露`ref`）。
+还有，对的，还有`ComponentProps<T>`和`ComponentPropsWithRef<T>`。它们的用法都相同，唯一区别是只有`ComponentPropsWithoutRef<T>`会遮盖掉`ref`，除此之外命名上的差异主要用于提供上下文信息（告诉代码阅读者这个组件会不会对外暴露`ref`）。
 
 还有，继承DOM Attributes不只有这些方法，只不过这些方法实践起来是最好的。详见参考网址中的第二个。
 
